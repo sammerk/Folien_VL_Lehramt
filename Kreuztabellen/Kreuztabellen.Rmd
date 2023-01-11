@@ -1,0 +1,358 @@
+---
+title: "Vorlesung: Forschungsmethoden"
+subtitle: "Sitzung 11: Effektstärken und Inferenzstatistik"
+author: "Andre Epp & Samuel Merk"
+date: "2019/01/15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      navigation:
+        scroll: false
+        click: false
+        touch: true
+editor_options: 
+  chunk_output_type: console
+---
+class: center,  middle, hide_logo
+
+
+<head>
+<script src="https://kit.fontawesome.com/994a28441d.js" crossorigin="anonymous"></script>
+<script src="//cdn.wordart.com/wordart.min.js" async defer></script>
+</head>
+
+<!--<div class="my-footer"><span>Folien CC-BY verfügbar unter https://atelier-phka-merk-2020.netlify.app</span></div> 
+
+
+<style>
+.remark-slide-number {
+  font-size: 10pt;
+  margin-bottom: -11.6px;
+  margin-right: 10px;
+  color: red; /* white */
+  opacity: 0; /* default: 0.5 */
+}
+</style>
+--> 
+
+```{r xaringan-themer, echo=F, warning=FALSE}
+library(xaringanthemer)
+library(fontawesome)
+library(xaringanExtra)
+
+extra_css <- list(
+  ".cit"  = list("font-size" = "70%",
+                 "color" = "#6AEE3E90"),
+  ".em05" = list("font-size" ="0.5em"),
+  ".em06" = list("font-size" ="0.6em"),
+  ".em07" = list("font-size" ="0.7em"),
+  ".em08" = list("font-size" ="0.8em"),
+  ".em09" = list("font-size" ="0.9em"),
+  ".em11" = list("font-size" ="1.1em"),
+  ".em12" = list("font-size" ="1.2em"),
+  ".em13" = list("font-size" ="1.3em"),
+  ".em14" = list("font-size" ="1.4em"),
+  ".em15" = list("font-size" ="1.5em"),
+  ".em16" = list("font-size" ="1.6em"),
+  ".em17" = list("font-size" ="1.7em"),
+  ".em18" = list("font-size" ="1.8em"),
+  ".em19" = list("font-size" ="1.9em"),
+  ".bold" = list("font-weight" = "bold"),
+  ".large" = list("font-size" = "160%"),
+  ".vertmiddle" = list("vertical-align" ="middle"),
+  #".lh15" = list("line-height" =  "1.5"),
+  ".li" = list("line-height" =  "1.5",
+               "font-size" = "160%",
+               "font-weight" = "bold"),
+  ".phgreen" = list("color" = "#50B32E"),
+  ".phgreenlight" = list("color" = "#62DC3A"),
+  ".pgl" = list("color" = "#62DC3A"),
+ # ".my-footer" = list("background-color" = "#1a1917",
+ #                     "position" = "absolute",
+ #                     "bottom" = "0px",
+ #                     "left" = "0px",
+ #                     "height" = "20px",
+ #                     "width" = "100%"),
+  ".my-footer span" = list("font-size" = "10pt", 
+                           "color" = "#F7F8FA",
+                           "position" = "absolute",
+                           "left" = "15px",
+                           "bottom" = "2px"),
+  ".remark-slide-number" = list("bottom" = "-18px"),
+  ".li" = list("line-height" =  "4"),
+  ".scroll-box-18" = list("height" ="18em",
+                           "overflow-y" = "scroll"),
+  ".scroll-box-23" = list("height" ="23em",
+                           "overflow-y" = "scroll"),
+  ".hscroll-box-30" = list("width" ="23em",
+                           "overflow-x" = "scroll"))
+
+style_mono_accent(
+  background_color = "#000000",
+  background_image = "https://live.staticflickr.com/65535/50973602108_8fce3f8f28_k.jpg",
+  text_color = "#ffffff",
+  base_color           = "#ffffff",
+  header_font_google   = google_font("Roboto", "700"),
+  text_font_google     = google_font("Roboto", "500"),
+  code_font_google     = google_font("Droid Mono"),
+  extra_css = extra_css,
+  inverse_background_color = "#ffffff",
+  inverse_text_color = "#000000",
+  link_color = "#6AEE3E"
+)
+
+use_logo(
+  image_url = "https://svgur.com/i/X57.svg",#"https://live.staticflickr.com/65535/50974533397_9ac99f9a48_o.png",
+  width = "180px",
+  position = css_position(top = "1.5em", right = "1.5em")
+)
+
+use_editable(expires = 1)
+```
+
+# .white[Vorlesung: Forschungsmethoden]
+
+
+.em14[<i class="fas fa-microscope fa-5x"></i>]
+
+### .white[Sitzung 11: Effektstärken und Inferenzstatistik für nominale Variablen]
+
+<img style="vertical-align:middle" src="https://live.staticflickr.com/65535/51100620932_e7ccc92abd_o.png", width="70px">  &nbsp;&nbsp;&nbsp;&nbsp;
+<img style="vertical-align:middle" src="https://imagizer.imageshack.com/img922/8876/bipedm.png", width="70px">
+
+.em14[.white[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;André Epp | Samuel Merk]]  
+
+
+---
+# Überblick
+.em13[
+* Effektstärken & Inferenzstatistiken
+* Effektstärken & Inferenzstatistiken für eine dichotome nominale Variable
+  * Anteile (Effektstärke)
+  * Binomialtest (Inferenzstatistik)
+      * p-Wert
+      * Bayes Factor
+* Zusammenhänge nominaler Variablen beschreiben & testen
+  * Zusammenhänge vs. Unterschiede 
+  * $\chi^2$-Statistik
+  * Cramér's V (Effektstärke)
+  * p-Wert (Inferenzstatistik)
+  * Bayes Factor
+]
+
+
+
+
+---
+class: center, middle
+# Effektstärken vs. Inferenzstatistiken    
+
+---
+# Beispiele zum Einstieg (1)
+> Der folgende Ausschnitt einer (abgeänderten) Pressemitteilung, bezieht sich auf eine reale Studie, die untersuchte, inwiefern sich bei Neuntklässlerinnen und Neuntklässlern die Wertschätzung des Faches Mathematik durch eine Präsentation von Interviews steigern lässt. Dazu wurde zunächst bei einer repräsentativen Stichprobe von Schülerinnen und Schülern die Wertschätzung des Faches Mathematik per Fragebogen erfasst und ihnen dann Interviewausschnitte präsentiert, in denen Berufstätige aussagen, dass Mathematik eine große Bedeutsamkeit für ihre Tätigkeit hat. Anschließend wurde die Wertschätzung des Faches Mathematik nochmals erfasst. _Nach der Präsentation der Interviews zeigten 75% der Schülerinnen und Schüler eine Wertschätzung über dem Durchschnitt der Wertschätzung vor der Präsentation._
+
+&nbsp;<br>&nbsp;<br>
+Was denken Sie? Soll Ausschnitt _»zeigten 75% der Schülerinnen und Schüler eine Wertschätzung über dem Durchschnitt der Wertschätzung vor der Präsentation«_ beschreiben
+* wie sicher es ist, dass der Unterschied auch tatsächlich existiert oder 
+* wie groß der Unterschied ist?
+
+
+---
+# Beispiele zum Einstieg (2)
+> ... _Die Präsentation von Interviewausschnitten zeigte einen signifikanten Effekt auf die Wertschätzung des Faches Mathematik._
+
+&nbsp;<br>&nbsp;<br>
+Was denken Sie? Soll diese Formulierung beschreiben
+* wie sicher es ist, dass der Unterschied auch tatsächlich existiert oder 
+* wie groß der Unterschied ist?
+
+---
+# Beispiele zum Einstieg (3)
+> ... _Die erhobenen Daten sind unter der Annahme gleicher Wertschätzung des Faches vor und nach der Präsentation der Interviews sehr unwahrscheinlich._
+
+&nbsp;<br>&nbsp;<br>
+Was denken Sie? Soll diese Formulierung beschreiben
+* wie sicher es ist, dass der Unterschied auch tatsächlich existiert oder 
+* wie groß der Unterschied ist?
+
+
+
+---
+# Effektstärken & Inferenzstatistiken
+
+### Effektstärken
+* Definition: _»We define effect size as a quantitative reflection of the magnitude of some phenomenon that is used for the purpose of addressing a question of interest«_ (Kelly & Preacher, 2012). 
+* Ideale Eigenschaften einer Effektstärke nach Cohen (1988)
+     1. Dimensionslosigkeit
+     2. Unabhängigkeit von der Maßeinheit der Ursprungsdaten
+     3. Unabhängigkeit von der Stichprobengröße
+
+### Inferenzstatistiken
+* Definition: Während deskriptive Statistik Datensätze beschreibt widmet, sich die Inferenzstatistik der Frage, _»mit welcher Sicherheit sich Ergebnisse, die an der untersuchten Stichprobe gewonnen wurden, auf die Grundgesamtheit (Population) verallgemeinern lassen.«_ (Eid, Gollwitzer & Schmidt, 2013)
+* Voraussetzungen eines technischen Verständnisses sind Maßtheorie & Stochastik (mathematische Wahrscheinlichkeitstheorie) $\Rightarrow$ wir beschäftigen uns »nur« konzeptionell mit Inferenzstatistiken.
+
+---
+class: center, middle
+# Effektstärken & Inferenzstatistiken für eine dichotome nominale Variable <br> .em07[(Anteil, p-Wert und Bayes Faktor für Binomialtest)]
+
+
+---
+# Beispielstudie (Pager et al., 2009)
+
+### Ausschnitt aus dem Abstract
+> »Decades of racial progress have led some researchers and policymakers to doubt that discrimination remains an important cause of economic inequality. To study contemporary discrimination, we conducted a field experiment in the low-wage labor market of New York City, recruiting white, black, and Latino job applicants who were matched on demographic characteristics and interpersonal skills. These applicants were given equivalent résumés and sent to apply in tandem for hundreds of entry-level jobs.« (Pager et al., 2009)
+
+### Datenbeispiel
+```{r, echo = F, message=FALSE, warning=FALSE}
+library(reactable)
+library(tidyverse)
+
+options(reactable.theme = reactableTheme(
+  color = "hsl(233, 9%, 87%)",
+  backgroundColor = "#a51e4100",
+  borderColor = "#ffffff",
+  stripedColor = "hsl(233, 12%, 22%)",
+  highlightColor = "hsl(233, 12%, 24%)",
+  inputStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  selectStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  pageButtonHoverStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  pageButtonActiveStyle = list(backgroundColor = "hsl(233, 9%, 28%)")
+))
+
+tibble(Applicant = c("Pos. Response White", "Pos. Response Black", "Pos. Response Latino"),
+       `Employer 1` = c(1,1,1),
+       `Employer 2` = c(1,0,1),
+       `Employer 3` = c(1,0,0),
+       `Employer 4` = c(0,0,0),
+       `usw.` =c("...","...","...")) %>% 
+reactable(., 
+           defaultColDef = colDef(align = "left"),
+          columns = list(
+            `Applicant` = colDef(minWidth = 200)))
+```
+
+---
+class: hide_logo
+  ### Vereinfachte Forschungsfrage:
+> Wie bedeutsam unterschied sich der Anteil positiver Antworten (vermeintlich) schwarzer Bewerber von der Quote (vermeintlich) weißer Bewerber (31%) und wie sicher kann von den vorliegenden Daten auf eine Abweichung von diesen 31% geschlussfolgert werden?
+
+---
+### Effektstärke (Vereinfachte Forschungsfrage) 
+Der Anteil positiver Antworten lag bei  schwarzen Bewerbern in den vorliegenden Stichprobendaten bei 15.2% (0.152). Damit ergibt sich ein Unterschied von `r 0.31-.152`. Diese Differenz stellt eine Effektstärke dar.
+
+### Inferenzstatistik I (Vereinfachte Forschungsfrage) 
+Wahrscheinlichkeit dass die vorliegenden Stichprobendaten zustandekommen unter der Annahme, dass in der Population der Schwarzen eine Rate positiver Antworten 31% gilt (= Nullhypothese $H_0$), aber aufgrund von Zufall (»sampling error«, Personalmanager hat Bewerbung übersehen, Post ging verloren, ...) die vorliegenden Daten (oder noch extremer gegen $H_0$ sprechende Daten) entstanden.
+--
+$$P(\text{vorliegende o. noch extremer gegen }H_0\text{ sprechende Daten}| H_0) := \text{p-Wert}$$
+--
+Der p-Wert quantifiziert absolute Evidenz gegen $H_0$. Er hat einen Wertebereich von 0 bis 1. Typischerweise spricht man von einem signifikanten Ergebnis, falls der p-Wert < .05 ist (arbiträre, historische Festlegung) und wertet dies als hinreichend für das Verwerfen von $H_0$. 
+
+---
+### Inferenzstatistik II (Vereinfachte Forschungsfrage) 
+Wahrscheinlichkeit dass die vorliegenden Stichprobendaten zustandekommen unter der Annahme, dass in der Population der Schwarzen eine Rate positiver Antworten 31% gilt (= Nullhypothese $H_0$), geteilt durch die »durchschnittliche Wahrscheinlichkeit« dass die vorliegenden Stichprobendaten zustandekommen unter der Annahme irgendeiner Rate $\theta$ (= Alternativhypothese $H_1$)
+--
+$$\frac{P(data | H_0)}{P(data|H_1)} = \frac{Bin(pos, neg, 0.31)}{\int Bin(pos, neg, \theta) \cdot \pi(\theta)\;d\theta} := \text{Bayes Faktor}$$
+
+--
+Der Bayes Faktor quantifiziert relative Evidenz. Er hat einen Wertebereich von 0 bis $+\infty$, wobei 0 die maximale Evidenz für $H_1$, $+\infty$ die maximale Evidenz für $H_0$ und 1 Inkonklusivität zum Ausdruck bringt.
+
+
+---
+class: center, middle
+
+# Zusammenhänge nominaler Variablen beschreiben & testen
+
+---
+.pull-left[
+
+### Wide-Data
+```{r, echo = F}
+library(tidyverse)
+tibble(`Response Black` = c(1,0,1, "..."),
+       `Response White` = c(1,1,1, "...")) %>% 
+  reactable(. , 
+  width = "250px")
+```
+
+
+$\Rightarrow Unterschied$
+]
+
+--
+
+.pull-right[
+
+### Long-Data
+```{r, echo = F}
+library(tidyverse)
+tibble(PID = c("Pers1", "Pers2", "Pers3", "Pers4", "Pers5", "Pers6", "..."),
+       Race = c("Black", "Black", "Black", "White", "White", "White", "..."),
+       Response = c(1,0,1,1,1,1, "...")
+) %>% 
+  reactable(. , 
+  width = "350px")
+```
+
+
+$\Rightarrow Zusammenhang$
+]
+
+---
+## Zusammenhänge zweier nominaler Variablen
+### Fiktives Beispiel: Fakultative Noten
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+--
+
+### Die $\chi^2$-Statistik
+$$\chi^2 = \sum_{i=1}^{k} \sum_{j=1}^{l} \frac{ \left( n_{ij} - e_{ij}\right)^2}{e_{ij}}$$
+
+$$\text{mit }n_{ij} = \text{beobachtete Häufigkeit }e_{ij} = \text{erwartete Häufigkeit}\\
+\text{in der Zelle ij (i-te Spalte, j-te Zeile)}$$
+
+
+
+???
+|              | fak     | oblig  | weiß nicht |          |
+|--------------|---------|--------|------------|----------|
+| kein Hochsch | 10/30   | 40/24  | 10/6       | 60=30%   |
+| hochsch      | 90/70   | 40/56  | 10/14      | 140=70%  |
+|              | 100=50% | 80=40% | 20=10%     | 200=100% |
+
+---
+## Zusammenhänge zweier nominaler Variablen
+### Das Effekstärkemaß »Cramérs V«
+$$V =\sqrt{\frac{\chi^2}{n\cdot(s-1)}}$$
+$$\text{wobei } n = \text{Stichprobengröße und }\\
+s =  \text{Anzahl der Messwertkategorien der Variablen mit der geringeren Zahl von Messwertkategorien}$$
+
+Damit ist Cramér's V eine Effektstärke die angibt, __wie stark__ zwei nominale Variablen assoziiert sind. Cramér's V kann Werte zwischen 0 und 1 annehmen und beschreibt die Stärke, aber nicht die Richtung des Zusammenhangs. Nach Cohen (1988) gilt $V=0.1$ als kleiner, $0.3$ als moderater und $0.5$ als starker Effekt.
+
+### Inferenzstatistiken 
+Mit einem p-Wert bzw. mit einem Bayes Faktor kann die Nullhypothese $H_0:\text{ Es gibt keinen Zusammenhang zwischen den beiden Variablen}$ getestet werden.
+
+---
+## Literatur
+
+Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2. Aufl.). Lawrence Erlbaum.  
+
+Kelley, K., & Preacher, K. J. (2012). On effect size. Psychological Methods, 17(2), 137–152. https://doi.org/10.1037/a0028086<br>
+
+Pager, D., Bonikowski, B., & Western, B. (2009). Discrimination in a Low-Wage Labor Market: A Field Experiment. American Sociological Review, 74(5), 777–799. https://doi.org/10.1177/000312240907400505
+
+
+
+
+
