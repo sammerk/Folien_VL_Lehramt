@@ -1,0 +1,70 @@
+---
+title: "Methodologie"
+author: "Samuel Merk"
+format: 
+  revealjs:
+    controls: true
+    logo: img/PHlogo.svg
+    theme: [dark, css/custom.scss]
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 3
+      buttons: true
+      chalk-effect: 0
+    fullscreen: true
+    pdfexport: true
+bibliography: references.bib
+csl: apa.csl
+editor_options: 
+  chunk_output_type: console
+---
+## Advanced Organizer
+```{r hidden chunk which creates template stuff}
+#| echo: false
+
+## in terminal ########
+# quarto install extension quarto-ext/fontawesome
+# quarto install extension schochastics/academicons
+#
+
+########################
+library(fontawesome)
+library(tidyverse)
+set.seed(848265)
+
+# Change css to lecker PH green
+if(!dir.exists("img"))
+dir.create("img")
+if(!dir.exists("css"))
+dir.create("css")
+fileConn<-file("css/custom.scss")
+writeLines(c("/*-- scss:defaults --*/",
+             "$link-color: #8cd000 !default;",
+             ".imp {color: #8cd000;}"), fileConn)
+close(fileConn)
+```
+
+
+* Wissenschaft vs. Nicht-Wissenschaft
+* Der Evidenzbegriff
+     * (Relative) Evidenz
+     * HO-Schema
+* Systematisierung (quantitativer Studien) in den Sozialwissenschaften 
+* Kriterien wissenschaftlicher Qualität
+
+
+## Wissenschaft vs. Nicht-Wiss. {.smaller}
+
+. . .
+
+> Wer wissenschaftliche Forschung („scientific research“) betreibt, sucht mithilfe [anerkannter wissenschaftlicher Methoden und Methodologien]{.imp} auf der Basis des [bisherigen Forschungsstandes]{.imp} (d. h. vorliegender Theorien und empirischer Befunde) [zielgerichtet]{.imp} nach gesicherten neuen Erkenntnissen, [dokumentiert]{.imp} den Forschungsprozess sowie dessen Ergebnisse [in nachvollziehbarer Weise]{.imp} und stellt die Studie in Vorträgen und Publikationen der [Fachöffentlichkeit]{.imp} vor [@doering2016]. 
+
+## Nicht-Wissenschaft Bsp. 1: {.smaller}
+> Datenbasierte Schulentwicklung: Befragung von Eltern zu Schulmensa. Perfekter Fragebogen & optimale Auswertung dennoch Nicht-Wissenschaft.
+
+. . .
+
+<br>
+Wer wissenschaftliche Forschung („scientific research“) betreibt, sucht mithilfe [anerkannter wissenschaftlicher Methoden und Methodologien]{.imp} <i class="fa fa-check-circle"></i> auf der Basis des [bisherigen Forschungsstandes]{.imp} <i class="fa fa-times-circle"></i> (d. h. vorliegender Theorien und empirischer Befunde) [zielgerichtet] <i class="fa fa-check-circle"></i> nach gesicherten neuen Erkenntnissen, [dokumentiert]{.imp} <i class="fa fa-times-circle"></i> den Forschungsprozess sowie dessen Ergebnisse [in nachvollziehbarer Weise]{.imp} <i class="fa fa-times-circle"></i> und stellt die Studie in Vorträgen und Publikationen der [Fachöffentlichkeit]{.imp} <i class="fa fa-times-circle"></i> vor.
+
+## Literatur

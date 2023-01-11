@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Vorlesung: Forschungsmethoden</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andre Epp &amp; Samuel Merk" />
+    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x4aa48cd0f644506ac558cec7ff62361","expires":1}</script>
+    <script src="libs/himalaya-1.1.0/himalaya.js"></script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="libs/editable-0.2.6/editable.js"></script>
+    <script src="libs/core-js-2.5.3/shim.min.js"></script>
+    <script src="libs/react-17.0.0/react.min.js"></script>
+    <script src="libs/react-17.0.0/react-dom.min.js"></script>
+    <script src="libs/reactwidget-1.0.0/react-tools.js"></script>
+    <script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
+    <script src="libs/reactable-binding-0.3.0/reactable.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center,  middle, hide_logo
+
+
+&lt;head&gt;
+&lt;script src="https://kit.fontawesome.com/994a28441d.js" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="//cdn.wordart.com/wordart.min.js" async defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;!--&lt;div class="my-footer"&gt;&lt;span&gt;Folien CC-BY verfügbar unter https://atelier-phka-merk-2020.netlify.app&lt;/span&gt;&lt;/div&gt; 
+
+
+&lt;style&gt;
+.remark-slide-number {
+  font-size: 10pt;
+  margin-bottom: -11.6px;
+  margin-right: 10px;
+  color: red; /* white */
+  opacity: 0; /* default: 0.5 */
+}
+&lt;/style&gt;
+--&gt; 
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 180px;
+height: 128px;
+z-index: 0;
+background-image: url(https://svgur.com/i/X57.svg);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1.5em;right:1.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+# .white[Vorlesung: Forschungsmethoden]
+
+
+.em14[&lt;i class="fas fa-microscope fa-5x"&gt;&lt;/i&gt;]
+
+### .white[Sitzung 11: Effektstärken und Inferenzstatistik für nominale Variablen]
+
+&lt;img style="vertical-align:middle" src="https://live.staticflickr.com/65535/51100620932_e7ccc92abd_o.png", width="70px"&gt;  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img style="vertical-align:middle" src="https://imagizer.imageshack.com/img922/8876/bipedm.png", width="70px"&gt;
+
+.em14[.white[&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;André Epp | Samuel Merk]]  
+
+
+---
+# Überblick
+.em13[
+* Effektstärken &amp; Inferenzstatistiken
+* Effektstärken &amp; Inferenzstatistiken für eine dichotome nominale Variable
+  * Anteile (Effektstärke)
+  * Binomialtest (Inferenzstatistik)
+      * p-Wert
+      * Bayes Factor
+* Zusammenhänge nominaler Variablen beschreiben &amp; testen
+  * Zusammenhänge vs. Unterschiede 
+  * `\(\chi^2\)`-Statistik
+  * Cramér's V (Effektstärke)
+  * p-Wert (Inferenzstatistik)
+  * Bayes Factor
+]
+
+
+
+
+---
+class: center, middle
+# Effektstärken vs. Inferenzstatistiken    
+
+---
+# Beispiele zum Einstieg (1)
+&gt; Der folgende Ausschnitt einer (abgeänderten) Pressemitteilung, bezieht sich auf eine reale Studie, die untersuchte, inwiefern sich bei Neuntklässlerinnen und Neuntklässlern die Wertschätzung des Faches Mathematik durch eine Präsentation von Interviews steigern lässt. Dazu wurde zunächst bei einer repräsentativen Stichprobe von Schülerinnen und Schülern die Wertschätzung des Faches Mathematik per Fragebogen erfasst und ihnen dann Interviewausschnitte präsentiert, in denen Berufstätige aussagen, dass Mathematik eine große Bedeutsamkeit für ihre Tätigkeit hat. Anschließend wurde die Wertschätzung des Faches Mathematik nochmals erfasst. _Nach der Präsentation der Interviews zeigten 75% der Schülerinnen und Schüler eine Wertschätzung über dem Durchschnitt der Wertschätzung vor der Präsentation._
+
+&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;br&gt;
+Was denken Sie? Soll Ausschnitt _»zeigten 75% der Schülerinnen und Schüler eine Wertschätzung über dem Durchschnitt der Wertschätzung vor der Präsentation«_ beschreiben
+* wie sicher es ist, dass der Unterschied auch tatsächlich existiert oder 
+* wie groß der Unterschied ist?
+
+
+---
+# Beispiele zum Einstieg (2)
+&gt; ... _Die Präsentation von Interviewausschnitten zeigte einen signifikanten Effekt auf die Wertschätzung des Faches Mathematik._
+
+&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;br&gt;
+Was denken Sie? Soll diese Formulierung beschreiben
+* wie sicher es ist, dass der Unterschied auch tatsächlich existiert oder 
+* wie groß der Unterschied ist?
+
+---
+# Beispiele zum Einstieg (3)
+&gt; ... _Die erhobenen Daten sind unter der Annahme gleicher Wertschätzung des Faches vor und nach der Präsentation der Interviews sehr unwahrscheinlich._
+
+&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;br&gt;
+Was denken Sie? Soll diese Formulierung beschreiben
+* wie sicher es ist, dass der Unterschied auch tatsächlich existiert oder 
+* wie groß der Unterschied ist?
+
+
+
+---
+# Effektstärken &amp; Inferenzstatistiken
+
+### Effektstärken
+* Definition: _»We define effect size as a quantitative reflection of the magnitude of some phenomenon that is used for the purpose of addressing a question of interest«_ (Kelly &amp; Preacher, 2012). 
+* Ideale Eigenschaften einer Effektstärke nach Cohen (1988)
+     1. Dimensionslosigkeit
+     2. Unabhängigkeit von der Maßeinheit der Ursprungsdaten
+     3. Unabhängigkeit von der Stichprobengröße
+
+### Inferenzstatistiken
+* Definition: Während deskriptive Statistik Datensätze beschreibt widmet, sich die Inferenzstatistik der Frage, _»mit welcher Sicherheit sich Ergebnisse, die an der untersuchten Stichprobe gewonnen wurden, auf die Grundgesamtheit (Population) verallgemeinern lassen.«_ (Eid, Gollwitzer &amp; Schmidt, 2013)
+* Voraussetzungen eines technischen Verständnisses sind Maßtheorie &amp; Stochastik (mathematische Wahrscheinlichkeitstheorie) `\(\Rightarrow\)` wir beschäftigen uns »nur« konzeptionell mit Inferenzstatistiken.
+
+---
+class: center, middle
+# Effektstärken &amp; Inferenzstatistiken für eine dichotome nominale Variable &lt;br&gt; .em07[(Anteil, p-Wert und Bayes Faktor für Binomialtest)]
+
+
+---
+# Beispielstudie (Pager et al., 2009)
+
+### Ausschnitt aus dem Abstract
+&gt; »Decades of racial progress have led some researchers and policymakers to doubt that discrimination remains an important cause of economic inequality. To study contemporary discrimination, we conducted a field experiment in the low-wage labor market of New York City, recruiting white, black, and Latino job applicants who were matched on demographic characteristics and interpersonal skills. These applicants were given equivalent résumés and sent to apply in tandem for hundreds of entry-level jobs.« (Pager et al., 2009)
+
+### Datenbeispiel
+<div id="htmlwidget-a918731bf2077ade67ab" class="reactable html-widget " style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a918731bf2077ade67ab">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Applicant":["Pos. Response White","Pos. Response Black","Pos. Response Latino"],"Employer 1":[1,1,1],"Employer 2":[1,0,1],"Employer 3":[1,0,0],"Employer 4":[0,0,0],"usw.":["...","...","..."]},"columns":[{"accessor":"Applicant","name":"Applicant","type":"character","align":"left","minWidth":200},{"accessor":"Employer 1","name":"Employer 1","type":"numeric","align":"left"},{"accessor":"Employer 2","name":"Employer 2","type":"numeric","align":"left"},{"accessor":"Employer 3","name":"Employer 3","type":"numeric","align":"left"},{"accessor":"Employer 4","name":"Employer 4","type":"numeric","align":"left"},{"accessor":"usw.","name":"usw.","type":"character","align":"left"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"theme":{"color":"hsl(233, 9%, 87%)","backgroundColor":"#a51e4100","borderColor":"#ffffff","stripedColor":"hsl(233, 12%, 22%)","highlightColor":"hsl(233, 12%, 24%)","inputStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"selectStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"pageButtonHoverStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"pageButtonActiveStyle":{"backgroundColor":"hsl(233, 9%, 28%)"}},"dataKey":"f4a1d1506adadfae506c2b6db2ce0a87"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+---
+class: hide_logo
+  ### Vereinfachte Forschungsfrage:
+&gt; Wie bedeutsam unterschied sich der Anteil positiver Antworten (vermeintlich) schwarzer Bewerber von der Quote (vermeintlich) weißer Bewerber (31%) und wie sicher kann von den vorliegenden Daten auf eine Abweichung von diesen 31% geschlussfolgert werden?
+
+---
+### Effektstärke (Vereinfachte Forschungsfrage) 
+Der Anteil positiver Antworten lag bei  schwarzen Bewerbern in den vorliegenden Stichprobendaten bei 15.2% (0.152). Damit ergibt sich ein Unterschied von 0.158. Diese Differenz stellt eine Effektstärke dar.
+
+### Inferenzstatistik I (Vereinfachte Forschungsfrage) 
+Wahrscheinlichkeit dass die vorliegenden Stichprobendaten zustandekommen unter der Annahme, dass in der Population der Schwarzen eine Rate positiver Antworten 31% gilt (= Nullhypothese `\(H_0\)`), aber aufgrund von Zufall (»sampling error«, Personalmanager hat Bewerbung übersehen, Post ging verloren, ...) die vorliegenden Daten (oder noch extremer gegen `\(H_0\)` sprechende Daten) entstanden.
+--
+`$$P(\text{vorliegende o. noch extremer gegen }H_0\text{ sprechende Daten}| H_0) := \text{p-Wert}$$`
+--
+Der p-Wert quantifiziert absolute Evidenz gegen `\(H_0\)`. Er hat einen Wertebereich von 0 bis 1. Typischerweise spricht man von einem signifikanten Ergebnis, falls der p-Wert &lt; .05 ist (arbiträre, historische Festlegung) und wertet dies als hinreichend für das Verwerfen von `\(H_0\)`. 
+
+---
+### Inferenzstatistik II (Vereinfachte Forschungsfrage) 
+Wahrscheinlichkeit dass die vorliegenden Stichprobendaten zustandekommen unter der Annahme, dass in der Population der Schwarzen eine Rate positiver Antworten 31% gilt (= Nullhypothese `\(H_0\)`), geteilt durch die »durchschnittliche Wahrscheinlichkeit« dass die vorliegenden Stichprobendaten zustandekommen unter der Annahme irgendeiner Rate `\(\theta\)` (= Alternativhypothese `\(H_1\)`)
+--
+`$$\frac{P(data | H_0)}{P(data|H_1)} = \frac{Bin(pos, neg, 0.31)}{\int Bin(pos, neg, \theta) \cdot \pi(\theta)\;d\theta} := \text{Bayes Faktor}$$`
+
+--
+Der Bayes Faktor quantifiziert relative Evidenz. Er hat einen Wertebereich von 0 bis `\(+\infty\)`, wobei 0 die maximale Evidenz für `\(H_1\)`, `\(+\infty\)` die maximale Evidenz für `\(H_0\)` und 1 Inkonklusivität zum Ausdruck bringt.
+
+
+---
+class: center, middle
+
+# Zusammenhänge nominaler Variablen beschreiben &amp; testen
+
+---
+.pull-left[
+
+### Wide-Data
+
+```
+## Warning: `bindFillRole()` only works on htmltools::tag() objects (e.g., div(),
+## p(), etc.), not objects of type 'shiny.tag.list'.
+```
+
+<div id="htmlwidget-f835080083ab2fb89270" class="reactable html-widget " style="width:250px;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f835080083ab2fb89270">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Response Black":["1","0","1","..."],"Response White":["1","1","1","..."]},"columns":[{"accessor":"Response Black","name":"Response Black","type":"character"},{"accessor":"Response White","name":"Response White","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"width":"250px","theme":{"color":"hsl(233, 9%, 87%)","backgroundColor":"#a51e4100","borderColor":"#ffffff","stripedColor":"hsl(233, 12%, 22%)","highlightColor":"hsl(233, 12%, 24%)","inputStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"selectStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"pageButtonHoverStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"pageButtonActiveStyle":{"backgroundColor":"hsl(233, 9%, 28%)"}},"dataKey":"2f64ea2c574968192ec9e64da72094f7"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+`\(\Rightarrow Unterschied\)`
+]
+
+--
+
+.pull-right[
+
+### Long-Data
+
+```
+## Warning: `bindFillRole()` only works on htmltools::tag() objects (e.g., div(),
+## p(), etc.), not objects of type 'shiny.tag.list'.
+```
+
+<div id="htmlwidget-5e1b0d22fa0033382a75" class="reactable html-widget " style="width:350px;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5e1b0d22fa0033382a75">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"PID":["Pers1","Pers2","Pers3","Pers4","Pers5","Pers6","..."],"Race":["Black","Black","Black","White","White","White","..."],"Response":["1","0","1","1","1","1","..."]},"columns":[{"accessor":"PID","name":"PID","type":"character"},{"accessor":"Race","name":"Race","type":"character"},{"accessor":"Response","name":"Response","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"width":"350px","theme":{"color":"hsl(233, 9%, 87%)","backgroundColor":"#a51e4100","borderColor":"#ffffff","stripedColor":"hsl(233, 12%, 22%)","highlightColor":"hsl(233, 12%, 24%)","inputStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"selectStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"pageButtonHoverStyle":{"backgroundColor":"hsl(233, 9%, 25%)"},"pageButtonActiveStyle":{"backgroundColor":"hsl(233, 9%, 28%)"}},"dataKey":"8252d5cfe8742e695a005a73110ab163"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+`\(\Rightarrow Zusammenhang\)`
+]
+
+---
+## Zusammenhänge zweier nominaler Variablen
+### Fiktives Beispiel: Fakultative Noten
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+--
+
+### Die `\(\chi^2\)`-Statistik
+`$$\chi^2 = \sum_{i=1}^{k} \sum_{j=1}^{l} \frac{ \left( n_{ij} - e_{ij}\right)^2}{e_{ij}}$$`
+
+`$$\text{mit }n_{ij} = \text{beobachtete Häufigkeit }e_{ij} = \text{erwartete Häufigkeit}\\
+\text{in der Zelle ij (i-te Spalte, j-te Zeile)}$$`
+
+
+
+???
+|              | fak     | oblig  | weiß nicht |          |
+|--------------|---------|--------|------------|----------|
+| kein Hochsch | 10/30   | 40/24  | 10/6       | 60=30%   |
+| hochsch      | 90/70   | 40/56  | 10/14      | 140=70%  |
+|              | 100=50% | 80=40% | 20=10%     | 200=100% |
+
+---
+## Zusammenhänge zweier nominaler Variablen
+### Das Effekstärkemaß »Cramérs V«
+`$$V =\sqrt{\frac{\chi^2}{n\cdot(s-1)}}$$`
+`$$\text{wobei } n = \text{Stichprobengröße und }\\
+s =  \text{Anzahl der Messwertkategorien der Variablen mit der geringeren Zahl von Messwertkategorien}$$`
+
+Damit ist Cramér's V eine Effektstärke die angibt, __wie stark__ zwei nominale Variablen assoziiert sind. Cramér's V kann Werte zwischen 0 und 1 annehmen und beschreibt die Stärke, aber nicht die Richtung des Zusammenhangs. Nach Cohen (1988) gilt `\(V=0.1\)` als kleiner, `\(0.3\)` als moderater und `\(0.5\)` als starker Effekt.
+
+### Inferenzstatistiken 
+Mit einem p-Wert bzw. mit einem Bayes Faktor kann die Nullhypothese `\(H_0:\text{ Es gibt keinen Zusammenhang zwischen den beiden Variablen}\)` getestet werden.
+
+---
+## Literatur
+
+Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2. Aufl.). Lawrence Erlbaum.  
+
+Kelley, K., &amp; Preacher, K. J. (2012). On effect size. Psychological Methods, 17(2), 137–152. https://doi.org/10.1037/a0028086&lt;br&gt;
+
+Pager, D., Bonikowski, B., &amp; Western, B. (2009). Discrimination in a Low-Wage Labor Market: A Field Experiment. American Sociological Review, 74(5), 777–799. https://doi.org/10.1177/000312240907400505
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false,
+"click": false,
+"touch": true
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
