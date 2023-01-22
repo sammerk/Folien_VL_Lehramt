@@ -360,9 +360,6 @@ Samuel Merk
 </section>
 <section id="unterschiede-in-der-zentralen-tendenz-zweier-intervallskalierter-variablen-beschreiben-und-testen" class="slide level2">
 <h2>Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen beschreiben und testen</h2>
-<div class="cell">
-
-</div>
 </section>
 <section class="slide level2">
 
@@ -420,10 +417,80 @@ Samuel Merk
 <section class="slide level2">
 
 <h3 id="dynamische-visualisierung-cohens-d">Dynamische Visualisierung Cohen’s <span class="math inline">\(d\)</span></h3>
+<p><br></p>
 <p><a href="https://www.geogebra.org/m/tGcX62gq" class="uri">https://www.geogebra.org/m/tGcX62gq</a></p>
 </section>
 <section class="slide level2">
 
+<div class="cell">
+
+</div>
+<h4 class="smaller" id="inferenzstatistiken-für-unterschiede-in-der-zentralen-tendenz-zweier-intervallskalierter-variablen-t-tests-und-welch-tests">Inferenzstatistiken für Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen: »t-Tests« und »Welch-Tests«</h4>
+<div style="font-size: 0.5em">
+<ul>
+<li>p-Werte und Bayes-Faktoren für Cohen’s <span class="math inline">\(d\)</span> und <span class="math inline">\(U_3\)</span> können über einen Koeffizienten (»die t-Statistik«) berechnet werden.</li>
+<li>Dabei wird meistens die <span class="math inline">\(H_0: d = 0\)</span> bzw. <span class="math inline">\(H_0: U_3 = 0.5\)</span> getestet</li>
+<li>Unterschieden wird dabei zwischen
+<ul>
+<li>unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und</li>
+<li>abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).</li>
+</ul></li>
+<li>Bei der Berechnung der t-Statistik wird vorausgesetzt dass 1) beide Variablen einer Normalverteilung mit 2) gleicher Streuung folgen.</li>
+<li>Der Welch-Test verzichtet auf die Annahme gleicher Streuung.</li>
+<li>Die t- und Welch-Tests sind jedoch robust gegen eine Verletzung der Normalverteilungsannahme falls <span class="math inline">\(N &gt; 30\)</span>.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h4 class="smaller" id="effektstärken-für-unterschiede-in-der-zentralen-tendenz-zweier-mind.-ordinaler-variablen">Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen</h4>
+<div class="cell">
+
+</div>
+</section>
+<section class="slide level2">
+
+<h4 class="smaller" id="effektstärken-für-unterschiede-in-der-zentralen-tendenz-zweier-mind.-ordinaler-variablen-1">Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen</h4>
+<div style="font-size: 0.5em">
+<ul>
+<li>Vargha &amp; Delaney’s A ist definiert als <span class="math inline">\(A(X,Y) = \frac{\#(x_i &gt; y_i) + 0.5 \cdot \#(x_i = y_i)}{\#X \cdot \#Y}\)</span> also durch die Anzahl der paarweisen Datenpunktvergleiche die zugunsten von X ausgehen plus die Hälfte derjenigen, die unentschieden ausgehen geteilt durch die Anzahl aller Vergleiche.</li>
+<li>A hat einen Wertebereich von 0 bis 1. Bei einem Nulleffekt wird <span class="math inline">\(A = 0.5\)</span>.</li>
+<li>Je weiter <span class="math inline">\(A\)</span> von 0.5 entfernt ist, desto stärker ist der Effekt.</li>
+<li>Cohen’s Benchmarks für kleine, mittlere und große Effekte liegen bei <span class="math inline">\(A=.56\)</span>, <span class="math inline">\(A=.64\)</span> und <span class="math inline">\(A=.71\)</span> bzw. <span class="math inline">\(A=.44\)</span>, <span class="math inline">\(A=.36\)</span> und <span class="math inline">\(A=.29\)</span>.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="dynamische-visualisierung-vargha-delaneys-a">Dynamische Visualisierung Vargha &amp; Delaney’s <span class="math inline">\(A\)</span></h3>
+<p><br></p>
+<p><a href="https://www.geogebra.org/m/FUDmaUrt" class="uri">https://www.geogebra.org/m/FUDmaUrt</a></p>
+</section>
+<section class="slide level2">
+
+<h3 id="guessing-app">Guessing App</h3>
+<p><br></p>
+<p><a href="https://apps.samuel-merk.de/guessing-d-U3-A/" class="uri">https://apps.samuel-merk.de/guessing-d-U3-A/</a></p>
+</section>
+<section class="slide level2">
+
+<h4 class="smaller" id="inferenzstatistiken-für-unterschiede-in-der-zentralen-tendenz-zweier-ordinaler-variablen-wilcoxons-rangsummentest-und-der-mann-whitney-u-test">Inferenzstatistiken für Unterschiede in der zentralen <br> Tendenz zweier ordinaler Variablen: »Wilcoxons Rangsummentest« und der »Mann-Whitney-U-Test«</h4>
+<div style="font-size: 0.5em">
+<ul>
+<li>p-Werte und Bayes-Faktoren für Vargha und Delaney’s <span class="math inline">\(A\)</span> sind ebenfalls verfügbar.</li>
+<li>Dabei wird meistens die <span class="math inline">\(H_0: A = 0.5\)</span> getestet.</li>
+<li>Unterschieden wird dabei zwischen
+<ul>
+<li>unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und</li>
+<li>abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).</li>
+</ul></li>
+<li>Für erstere ist der »Mann-Whitney-U-Test« für zweitere »Wilcoxons Rangsummentest« geeignet.</li>
+<li>Beide Tests kommen ohne Annahmen bzgl. der Verteilung aus.</li>
+</ul>
+</div>
+</section>
+<section id="literatur" class="slide level2">
+<h2>Literatur</h2>
 
 <img src="img/PHlogo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
 

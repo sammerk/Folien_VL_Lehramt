@@ -160,6 +160,8 @@ ggplot(data_d02,
 
 ### Dynamische Visualisierung Cohen's $d$
 
+<br>
+
 <https://www.geogebra.org/m/tGcX62gq>
 
 ------------------------------------------------------------------------
@@ -168,3 +170,68 @@ ggplot(data_d02,
 # hier muss noch ein klickbares bild eingefügt werden??
 ```
 
+#### Inferenzstatistiken für Unterschiede in der zentralen Tendenz zweier intervallskalierter Variablen: »t-Tests« und »Welch-Tests« {.smaller}
+
+::: {style="font-size: 0.5em"}
+-   p-Werte und Bayes-Faktoren für Cohen's $d$ und $U_3$ können über einen Koeffizienten (»die t-Statistik«) berechnet werden.
+-   Dabei wird meistens die $H_0: d = 0$ bzw. $H_0: U_3 = 0.5$ getestet
+-   Unterschieden wird dabei zwischen
+    -   unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und
+    -   abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).
+-   Bei der Berechnung der t-Statistik wird vorausgesetzt dass 1) beide Variablen einer Normalverteilung mit 2) gleicher Streuung folgen.
+-   Der Welch-Test verzichtet auf die Annahme gleicher Streuung.
+-   Die t- und Welch-Tests sind jedoch robust gegen eine Verletzung der Normalverteilungsannahme falls $N > 30$.
+:::
+
+------------------------------------------------------------------------
+
+#### Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen {.smaller}
+
+```{r notes2}
+# hier muss ich noch herausfinden, wie ich den Text rechts und links aligne, ohne dafür eine Tabelle zu erstellen (dann habe ich das Problem, dass man nicht eins nach dem anderen auftauchen lassen kann.)
+```
+
+------------------------------------------------------------------------
+
+#### Effektstärken für Unterschiede in der zentralen Tendenz zweier mind. ordinaler Variablen {.smaller}
+
+::: {style="font-size: 0.5em"}
+-   Vargha & Delaney's A ist definiert als $A(X,Y) = \frac{\#(x_i > y_i) + 0.5 \cdot \#(x_i = y_i)}{\#X \cdot \#Y}$ also durch die Anzahl der paarweisen Datenpunktvergleiche die zugunsten von X ausgehen plus die Hälfte derjenigen, die unentschieden ausgehen geteilt durch die Anzahl aller Vergleiche.
+-   A hat einen Wertebereich von 0 bis 1. Bei einem Nulleffekt wird $A = 0.5$.
+-   Je weiter $A$ von 0.5 entfernt ist, desto stärker ist der Effekt.
+-   Cohen's Benchmarks für kleine, mittlere und große Effekte liegen bei $A=.56$, $A=.64$ und $A=.71$ bzw. $A=.44$, $A=.36$ und $A=.29$.
+:::
+
+------------------------------------------------------------------------
+
+### Dynamische Visualisierung Vargha & Delaney's $A$
+
+<br>
+
+<https://www.geogebra.org/m/FUDmaUrt>
+
+------------------------------------------------------------------------
+
+### Guessing App
+
+<br>
+
+<https://apps.samuel-merk.de/guessing-d-U3-A/>
+
+------------------------------------------------------------------------
+
+#### Inferenzstatistiken für Unterschiede in der zentralen <br> Tendenz zweier ordinaler Variablen: »Wilcoxons Rangsummentest« und der »Mann-Whitney-U-Test« {.smaller}
+
+::: {style="font-size: 0.5em"}
+-   p-Werte und Bayes-Faktoren für Vargha und Delaney's $A$ sind ebenfalls verfügbar.
+-   Dabei wird meistens die $H_0: A = 0.5$ getestet.
+-   Unterschieden wird dabei zwischen
+    -   unabhängigen Stichproben (z.B. Interventions- und Kontrollgruppe) und
+    -   abhängigen Stichproben (z.B. Messwiederholung oder Ehepaare).
+-   Für erstere ist der »Mann-Whitney-U-Test« für zweitere »Wilcoxons Rangsummentest« geeignet.
+-   Beide Tests kommen ohne Annahmen bzgl. der Verteilung aus.
+:::
+
+------------------------------------------------------------------------
+
+## Literatur
