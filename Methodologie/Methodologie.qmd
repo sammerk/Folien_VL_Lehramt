@@ -67,4 +67,135 @@ close(fileConn)
 <br>
 Wer wissenschaftliche Forschung („scientific research“) betreibt, sucht mithilfe [anerkannter wissenschaftlicher Methoden und Methodologien]{.imp} <i class="fa fa-check-circle"></i> auf der Basis des [bisherigen Forschungsstandes]{.imp} <i class="fa fa-times-circle"></i> (d. h. vorliegender Theorien und empirischer Befunde) [zielgerichtet] <i class="fa fa-check-circle"></i> nach gesicherten neuen Erkenntnissen, [dokumentiert]{.imp} <i class="fa fa-times-circle"></i> den Forschungsprozess sowie dessen Ergebnisse [in nachvollziehbarer Weise]{.imp} <i class="fa fa-times-circle"></i> und stellt die Studie in Vorträgen und Publikationen der [Fachöffentlichkeit]{.imp} <i class="fa fa-times-circle"></i> vor.
 
+## Nicht-Wissenschaft Bsp. 2: {.smaller}
+> Practical Wisdom: Tipp des Betreuungslehrers - lernen Sie schnell die Vornamen, das wird das Classroommanagement schnell erleichtern.
+
+. . .
+
+<br>
+Wer wissenschaftliche Forschung („scientific research“) betreibt, sucht mithilfe [anerkannter wissenschaftlicher Methoden und Methodologien]{.imp} <i class="fa fa-times-circle"></i> auf der Basis des [bisherigen Forschungsstandes]{.imp} <i class="fa fa-times-circle"></i> (d. h. vorliegender Theorien und empirischer Befunde) [zielgerichtet]{.imp} <i class="fa fa-times-circle"></i> nach gesicherten neuen Erkenntnissen, [dokumentiert]{.imp} <i class="fa fa-times-circle"></i> den Forschungsprozess sowie dessen Ergebnisse [in nachvollziehbarer Weise]{.imp} <i class="fa fa-times-circle"></i> und stellt die Studie in Vorträgen und Publikationen der [Fachöffentlichkeit]{.imp} <i class="fa fa-times-circle"></i> vor.
+
+## Der Evidenzbegriff
+
+## Arbeitsdefinition: »Evidenzbegriff« {.smaller}
+
+> [Evidenz]{.imp} meint, die Vereinbarkeit einer Beobachtung mit einer Hypothese. 
+
+> [Relative Evidenz]{.imp} meint, die Vereinbarkeit einer Beobachtung mit einer Hypothese im Vergleich zur Vereinbarkeit mit einer anderen Hypothese.
+
+## Beispiel: Evidenz? {.smaller}
+
+{{< video https://apps.samuel-merk.de/img/Trump_Evidence.mp4 width="1000%" height="500%" >}}
+
+## Bsp. im Folgenden: Dual-Channel Theory {.smaller}
+
+```{r, fig.cap="Copyright by https://www.mysimpleshow.com", echo = F, out.width="60%", fig.align='center'}
+knitr::include_graphics("img/dual_channel_icon.png")
+```
+
+## Bsp. im Folgenden: Dual-Channel Theory {.smaller}
+
+```{r, fig.cap="Copyright by https://www.mysimpleshow.com", echo = F, out.width="60%", fig.align='center'}
+knitr::include_graphics("img/dual_channel_bsp_poire.png")
+```
+
+## Das Hempel-Oppenheim-Schema (HOS) I {.smaller}
+
+```{r, fig.cap="Das Hempel-Oppenheimer-Schema", echo = F, out.width="65%", fig.align='center'}
+knitr::include_graphics("img/HO_Circle.png")
+```
+
+## Das HOS II {.smaller}
+
+```{r, fig.cap="Das Hempel-Oppenheimer-Schema", echo = F, out.width="75%", fig.align='center'}
+knitr::include_graphics("img/HO_DCT.png")
+```
+
+## Das HOS III {.smaller}
+
+```{r, fig.cap="Das Hempel-Oppenheimer-Schema", echo = F, out.width="75%", fig.align='center'}
+knitr::include_graphics("img/HO_abstrakt.png")
+```
+
+
+## Systematisierung (quantitativer Studien) in den Sozialwissenschaften
+
+## Empirische, theoretische & methodische Studien {.smaller}
+
+::: {style="font-size: 0.8em"}
+
+> [Empirisch]{.imp} meint _auf Beobachtungen beruhend_ die zielgerichtet für die Forschungsfrage generiert wurden.
+<br>
+> [Theoretisch]{.imp} meint _nicht direkt auf Beobachtungen/Daten_ beziehend (nicht-empirisch).
+<br>
+> [Methodisch]{.imp} meint _eine wissenschaftliche Methode untersuchend_.
+
+:::
+
+### Beispiele (Auszüge aus Abstracts): {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {style="font-size: 0.65em"}
+
+"Der Beitrag diskutiert die Bedeutung von Meta-Reflexivität für die Professionalität im Lehrerinnen- und Lehrerberuf. Meta-Reflexivität beruht erstens auf der für die Lehrerbildung konstitutiven Mehrperspektivität, die wiederum auf die vielfältigen an ihr beteiligten Disziplinen und Studienelemente zurückgeht. Zweitens greift der Ansatz Ungewissheit als konstitutives Merkmal der gängigen Professionstheorien zum Lehrerinnen- und Lehrerberuf auf. Ausgehend von einer historisch-systematischen Rekonstruktion wird Meta-Reflexivität als ein Element von Professionalität entfaltet (...)" [@cramer_meta-reflexivitat_2019].<br><br>
+
+[➡ Theoretische Studie]{.imp}
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {style="font-size: 0.65em"}
+
+"Recent reports show that fewer adolescents believe that regular cannabis use is harmful to health. Concomitantly, adolescents are initiating cannabis use at younger ages, and more adolescents are using cannabis on a daily basis. The purpose of the present study was to test the association between persistent cannabis use and neuropsychological decline and determine whether decline is concentrated among adolescent-onset cannabis users. Participants were members of the Dunedin Study, a prospective study of a birth cohort of 1,037 individuals followed from birth (1972/1973) to age 38 y. Cannabis use was ascertained in interviews at ages 18, 21, 26, 32, and 38 y (...)"[@meier_persistent_2012].<br><br>
+
+[➡ Empirische Studie]{.imp}
+:::
+
+:::
+
+::::
+
+---
+
+## Primär-, Sekundär-, Meta-, Metametastudien {.smaller}
+
+::: {style="font-size: 0.8em"}
+
+> _Bei der [Primärstudie]{.imp} ist die Datengrundlage ein selbst generierter Datensatz.  
+Bei der [Sekundärstudie]{.imp} werden bereits vorhandene Datensätze erneut analysiert.  
+Bei der [Metaanalyse]{.imp} greift man aus einer mehr oder minder großen Menge vergleichbarer Studien zum selben Sachverhalt die berichteten statistischen Ergebnisse heraus und rechnet mit diesen weiter._ <br> [@doering2016]
+
+:::
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {style="font-size: 0.65em"}
+
+"Suspension of face-to-face instruction in schools during the COVID-19 pandemic has led to concerns about consequences for students’ learning. So far, data to study this question have been limited. Here we evaluate the effect of school closures on primary school performance using exceptionally rich data from The Netherlands (n ≈ 350,000). We use the fact that national examinations took place before and after lockdown and compare progress during this period to the same period in the 3 previous years. (...)" [@engzell_learning_2021].<br><br>
+
+[➡ Sekundärstudie]{.imp}
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {style="font-size: 0.65em"}
+
+"Kinder mit sprachlichem Migrationshintergrund stehen beim Erwerb sprachlicher Kompetenzen in der Schule vor besonderen Herausforderungen. Wir untersuchen Stereotypenbedrohung als mögliche Ursache für einen geringeren Wortschatzzuwachs. N = 118 Kinder mit sprachlichem Migrationshintergrund aus 18 Grundschulklassen der vierten Jahrgangsstufe wurden randomisiert einer expliziten, einer impliziten oder keiner Stereotypenbedrohung ausgesetzt und sollten im Anschluss schwierige Wörter erlernen. Erwartungsgemäß war der Wortschatzzuwachs in den beiden Bedrohungsbedingungen, insbesondere in der expliziten, geringer als in der Kontrollbedingung.  (...)" [@sander_stereotypenbedrohung_2018].<br><br>
+
+[➡ Primärstudie]{.imp}
+:::
+
+:::
+
+::::
+
 ## Literatur

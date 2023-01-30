@@ -162,7 +162,7 @@ ggplot(data_d02,
 
 <br>
 
-<https://www.geogebra.org/m/tGcX62gq>
+[Link](https://www.geogebra.org/m/tGcX62gq){preview-link="true"}
 
 ------------------------------------------------------------------------
 
@@ -208,15 +208,16 @@ ggplot(data_d02,
 
 <br>
 
-<https://www.geogebra.org/m/FUDmaUrt>
+[Link](https://www.geogebra.org/m/FUDmaUrt){preview-link="true"}
 
+->[] Referenzen, damit Bib korrekt
 ------------------------------------------------------------------------
 
 ### Guessing App
 
 <br>
 
-<https://apps.samuel-merk.de/guessing-d-U3-A/>
+[Link](https://apps.samuel-merk.de/guessing-d-U3-A/){preview-link="true"}
 
 ------------------------------------------------------------------------
 
