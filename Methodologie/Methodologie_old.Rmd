@@ -299,7 +299,7 @@ knitr::include_graphics("img/longi.png")
 ```
 
 ---
-# Loborstudie, Feldstudie
+# Laborstudie, Feldstudie
 
 ---
 class: hide_logo
@@ -348,7 +348,7 @@ class: hide_logo
 
 ---
 # Nicht-experimentelle Studien
-> _"Eine nicht-experimentelle Studie („non-experimental study“, „descriptive study“) greift auf vorgefundene Gruppen zurück (keine Randomisierung) und betrachtet deren vorge- fundene Unterschiede"_ .cit[Döring & Bortz, 2016]
+> _"Eine nicht-experimentelle Studie („non-experimental study“, „descriptive study“) greift auf vorgefundene Gruppen zurück (keine Randomisierung) und betrachtet deren vorgefundene Unterschiede"_ .cit[Döring & Bortz, 2016]
 
 
 ---
